@@ -23,6 +23,13 @@
 -A ufw-before-input -s 185.224.228.0/22 -j DROP
 -A ufw-before-input -s 195.209.120.0/22 -j DROP
 -A ufw-before-input -s 212.192.156.0/22 -j DROP
+-A ufw-before-input -s 194.165.22.0/24 -j DROP
+-A ufw-before-input -s 194.165.23.0/24 -j DROP
+-A ufw-before-input -s 195.209.122.0/22 -j DROP
+-A ufw-before-input -s 185.224.231.0/24 -j DROP
+-A ufw-before-input -s 185.224.230.0/24 -j DROP
+-A ufw-before-input -s 185.224.229.0/24 -j DROP
+-A ufw-before-input -s 212.192.158.0/24 -j DROP
 ```  
 **Обязательно оставьте `COMMIT` последней строкой!** Сохраните файл.
 
