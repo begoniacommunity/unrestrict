@@ -31,7 +31,8 @@
 -A ufw-before-input -s 185.224.229.0/24 -j DROP
 -A ufw-before-input -s 212.192.158.0/24 -j DROP
 ```  
-**Обязательно оставьте `COMMIT` последней строкой!** Сохраните файл.
+**Обязательно оставьте `COMMIT` последней строкой!** Сохраните файл.  
+> 8.1. Существует готовый скрипт блокировки ботов РКН с обновляемыми списками. [Ознакомиться можно в профильном репозитории.](https://github.com/freemedia-tech/iptables-rugov-block)
 
 9. Придумайте или [сгенерируйте](https://www.random.org/) 5 новых случайных чисел от 1 до 65535 – они потребуются в качестве портов для настраиваемых протоколов и веб-панели Marzban.
 
@@ -130,6 +131,13 @@ cat >> /etc/ufw/before.rules <<EOF
 -A ufw-before-input -s 185.224.228.0/22 -j DROP
 -A ufw-before-input -s 195.209.120.0/22 -j DROP
 -A ufw-before-input -s 212.192.156.0/22 -j DROP
+-A ufw-before-input -s 194.165.22.0/24 -j DROP
+-A ufw-before-input -s 194.165.23.0/24 -j DROP
+-A ufw-before-input -s 195.209.122.0/22 -j DROP
+-A ufw-before-input -s 185.224.231.0/24 -j DROP
+-A ufw-before-input -s 185.224.230.0/24 -j DROP
+-A ufw-before-input -s 185.224.229.0/24 -j DROP
+-A ufw-before-input -s 212.192.158.0/24 -j DROP
 COMMIT
 EOF
 
@@ -140,6 +148,10 @@ systemctl restart sshd && systemctl restart networking && ufw enable
 7. PROFIT. Всё сделалось само, никуда лезть не надо :)
 
 ## II. Устанавливаем и настраиваем Marzban
+>
+> [!NOTE]
+> Инструкция актуальна на момент последнего редактирования этого раздела (13.04.2024).  
+Если вы обнаружили, что в новых версиях присутствуют какие-либо несоответствия с гайдом, просим сообщить о них, создав Issue или предложив правки через Pull Request, так как Marzban – активно развивающийся проект, изменения в котором не всегда получается отслеживать своевременно. 
 1. Выполните команду:  
 `sudo bash -c "$(curl -sL https://github.com/Gozargah/Marzban-scripts/raw/master/marzban.sh)" @ install`
 
