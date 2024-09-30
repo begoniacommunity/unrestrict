@@ -63,7 +63,7 @@ ufw allow 29875 и т. п.
 2. Авторизуемся на сервере любым удобным способом и переходим к консоли, затем выполняем команду `mkdir ~/.ssh && touch ~/.ssh/authorized_keys && chmod 644 -R ~/.ssh`.
 3. Переходим к редактированию на сервере – используем WinSCP или [nano.](https://help.ubuntu.ru/wiki/nano)  
 В файле `/etc/ssh/sshd_config:`   
-Меняем значение `PasswordAuthentication` на `no`  
+Раскоментируем и меняем значение `PasswordAuthentication` на `no`  
 Раскомментируем строчку `PubkeyAuthentication` и меняем значение на `yes`  
 Добавляем новую строчку `AuthenticationMethods publickey`  
 Раскомментируем строчку `AuthorizedKeysFile`, а из её значения убираем `.ssh/authorized_keys2`  
